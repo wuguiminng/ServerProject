@@ -1,0 +1,7 @@
+{
+	"people":[ 
+	{ "firstName":"z", "lastName" : "Jason", "email" : "bbbb@126.com", "height" : 1.67},
+	{ "lastName":"jadena", "email" : "jadena@126.com", "age" : 8, "height" : 1.17 },
+	{ "email":"cccc@126.com", "firstName" : "z", "lastName" : "Juliet", "age" : 36, "height" : 1.55 }
+	]
+}

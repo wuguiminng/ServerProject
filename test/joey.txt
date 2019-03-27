@@ -1,0 +1,616 @@
+typedef struct{
+	//协议头部
+	char head[10];
+	char checknum; //校验码
+	char buff[512]; //数据
+}Msg;
+
+static unsigned char msg_ckeck(Msg *message)
+{
+	unsigned int s = 0;
+	for (i = 0; i < sizeof(message->buff); i++)
+	{
+		s += message->buff[i];
+	}
+	return s;
+}
+
+
+int getMessageFromClient()
+{
+	char recvMessage[MAX_SIZE] = 0;
+	bzero(sendMessage, MAX_SIZE);
+	int ret = -1;
+	
+	
+	ret = read(clientSocket, recvMessage, sizeof(recvMessage)); //读取客户端发送过来的数据
+	if (ret < 0)
+	{
+		perror("read message from client error");
+		return -1;
+	}
+	
+	ret = decodePacket(sendMessage);
+
+}
+
+int decodePacket(char *sendMessage) //数据包解析
+{
+	int cmd = -1;
+	char id[30] = {0}; //ip + port
+	//0、先判断ip和Port是本客户端的吗
+	
+	unsigned int fileSize = 0; //文件大小
+	
+	
+	//1、先获取id 和 cmd 
+	
+	switch(cmd)
+	{
+		case 0: //断开连接
+			break;
+		case 1: //接收XML文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析XML文件
+			break;
+		}
+		case 2: //接收JSON文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析Json文件
+			break;
+		}
+		case 3: //接收URL链接
+		{
+			char type[10] = {0}; //文件类型
+			char url[50] = {0};  //url链接
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件类型 URL链接 校验码
+			//3、验证校验码是否正确 错误返回-1 
+			//4、把链接中的文件下载保存到对应的文件夹中
+			//5、如果出错返回-1
+		}
+		default:
+			break;
+	}
+}
+typedef struct{
+	//协议头部
+	char head[10];
+	char checknum; //校验码
+	char buff[512]; //数据
+}Msg;
+
+static unsigned char msg_ckeck(Msg *message)
+{
+	unsigned int s = 0;
+	for (i = 0; i < sizeof(message->buff); i++)
+	{
+		s += message->buff[i];
+	}
+	return s;
+}
+
+
+int getMessageFromClient()
+{
+	char recvMessage[MAX_SIZE] = 0;
+	bzero(sendMessage, MAX_SIZE);
+	int ret = -1;
+	
+	
+	ret = read(clientSocket, recvMessage, sizeof(recvMessage)); //读取客户端发送过来的数据
+	if (ret < 0)
+	{
+		perror("read message from client error");
+		return -1;
+	}
+	
+	ret = decodePacket(sendMessage);
+
+}
+
+int decodePacket(char *sendMessage) //数据包解析
+{
+	int cmd = -1;
+	char id[30] = {0}; //ip + port
+	//0、先判断ip和Port是本客户端的吗
+	
+	unsigned int fileSize = 0; //文件大小
+	
+	
+	//1、先获取id 和 cmd 
+	
+	switch(cmd)
+	{
+		case 0: //断开连接
+			break;
+		case 1: //接收XML文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析XML文件
+			break;
+		}
+		case 2: //接收JSON文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析Json文件
+			break;
+		}
+		case 3: //接收URL链接
+		{
+			char type[10] = {0}; //文件类型
+			char url[50] = {0};  //url链接
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件类型 URL链接 校验码
+			//3、验证校验码是否正确 错误返回-1 
+			//4、把链接中的文件下载保存到对应的文件夹中
+			//5、如果出错返回-1
+		}
+		default:
+			break;
+	}
+}
+typedef struct{
+	//协议头部
+	char head[10];
+	char checknum; //校验码
+	char buff[512]; //数据
+}Msg;
+
+static unsigned char msg_ckeck(Msg *message)
+{
+	unsigned int s = 0;
+	for (i = 0; i < sizeof(message->buff); i++)
+	{
+		s += message->buff[i];
+	}
+	return s;
+}
+
+
+int getMessageFromClient()
+{
+	char recvMessage[MAX_SIZE] = 0;
+	bzero(sendMessage, MAX_SIZE);
+	int ret = -1;
+	
+	
+	ret = read(clientSocket, recvMessage, sizeof(recvMessage)); //读取客户端发送过来的数据
+	if (ret < 0)
+	{
+		perror("read message from client error");
+		return -1;
+	}
+	
+	ret = decodePacket(sendMessage);
+
+}
+
+int decodePacket(char *sendMessage) //数据包解析
+{
+	int cmd = -1;
+	char id[30] = {0}; //ip + port
+	//0、先判断ip和Port是本客户端的吗
+	
+	unsigned int fileSize = 0; //文件大小
+	
+	
+	//1、先获取id 和 cmd 
+	
+	switch(cmd)
+	{
+		case 0: //断开连接
+			break;
+		case 1: //接收XML文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析XML文件
+			break;
+		}
+		case 2: //接收JSON文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析Json文件
+			break;
+		}
+		case 3: //接收URL链接
+		{
+			char type[10] = {0}; //文件类型
+			char url[50] = {0};  //url链接
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件类型 URL链接 校验码
+			//3、验证校验码是否正确 错误返回-1 
+			//4、把链接中的文件下载保存到对应的文件夹中
+			//5、如果出错返回-1
+		}
+		default:
+			break;
+	}
+}
+typedef struct{
+	//协议头部
+	char head[10];
+	char checknum; //校验码
+	char buff[512]; //数据
+}Msg;
+
+static unsigned char msg_ckeck(Msg *message)
+{
+	unsigned int s = 0;
+	for (i = 0; i < sizeof(message->buff); i++)
+	{
+		s += message->buff[i];
+	}
+	return s;
+}
+
+
+int getMessageFromClient()
+{
+	char recvMessage[MAX_SIZE] = 0;
+	bzero(sendMessage, MAX_SIZE);
+	int ret = -1;
+	
+	
+	ret = read(clientSocket, recvMessage, sizeof(recvMessage)); //读取客户端发送过来的数据
+	if (ret < 0)
+	{
+		perror("read message from client error");
+		return -1;
+	}
+	
+	ret = decodePacket(sendMessage);
+
+}
+
+int decodePacket(char *sendMessage) //数据包解析
+{
+	int cmd = -1;
+	char id[30] = {0}; //ip + port
+	//0、先判断ip和Port是本客户端的吗
+	
+	unsigned int fileSize = 0; //文件大小
+	
+	
+	//1、先获取id 和 cmd 
+	
+	switch(cmd)
+	{
+		case 0: //断开连接
+			break;
+		case 1: //接收XML文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析XML文件
+			break;
+		}
+		case 2: //接收JSON文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析Json文件
+			break;
+		}
+		case 3: //接收URL链接
+		{
+			char type[10] = {0}; //文件类型
+			char url[50] = {0};  //url链接
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件类型 URL链接 校验码
+			//3、验证校验码是否正确 错误返回-1 
+			//4、把链接中的文件下载保存到对应的文件夹中
+			//5、如果出错返回-1
+		}
+		default:
+			break;
+	}
+}
+typedef struct{
+	//协议头部
+	char head[10];
+	char checknum; //校验码
+	char buff[512]; //数据
+}Msg;
+
+static unsigned char msg_ckeck(Msg *message)
+{
+	unsigned int s = 0;
+	for (i = 0; i < sizeof(message->buff); i++)
+	{
+		s += message->buff[i];
+	}
+	return s;
+}
+
+
+int getMessageFromClient()
+{
+	char recvMessage[MAX_SIZE] = 0;
+	bzero(sendMessage, MAX_SIZE);
+	int ret = -1;
+	
+	
+	ret = read(clientSocket, recvMessage, sizeof(recvMessage)); //读取客户端发送过来的数据
+	if (ret < 0)
+	{
+		perror("read message from client error");
+		return -1;
+	}
+	
+	ret = decodePacket(sendMessage);
+
+}
+
+int decodePacket(char *sendMessage) //数据包解析
+{
+	int cmd = -1;
+	char id[30] = {0}; //ip + port
+	//0、先判断ip和Port是本客户端的吗
+	
+	unsigned int fileSize = 0; //文件大小
+	
+	
+	//1、先获取id 和 cmd 
+	
+	switch(cmd)
+	{
+		case 0: //断开连接
+			break;
+		case 1: //接收XML文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析XML文件
+			break;
+		}
+		case 2: //接收JSON文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析Json文件
+			break;
+		}
+		case 3: //接收URL链接
+		{
+			char type[10] = {0}; //文件类型
+			char url[50] = {0};  //url链接
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件类型 URL链接 校验码
+			//3、验证校验码是否正确 错误返回-1 
+			//4、把链接中的文件下载保存到对应的文件夹中
+			//5、如果出错返回-1
+		}
+		default:
+			break;
+	}
+}
+typedef struct{
+	//协议头部
+	char head[10];
+	char checknum; //校验码
+	char buff[512]; //数据
+}Msg;
+
+static unsigned char msg_ckeck(Msg *message)
+{
+	unsigned int s = 0;
+	for (i = 0; i < sizeof(message->buff); i++)
+	{
+		s += message->buff[i];
+	}
+	return s;
+}
+
+
+int getMessageFromClient()
+{
+	char recvMessage[MAX_SIZE] = 0;
+	bzero(sendMessage, MAX_SIZE);
+	int ret = -1;
+	
+	
+	ret = read(clientSocket, recvMessage, sizeof(recvMessage)); //读取客户端发送过来的数据
+	if (ret < 0)
+	{
+		perror("read message from client error");
+		return -1;
+	}
+	
+	ret = decodePacket(sendMessage);
+
+}
+
+int decodePacket(char *sendMessage) //数据包解析
+{
+	int cmd = -1;
+	char id[30] = {0}; //ip + port
+	//0、先判断ip和Port是本客户端的吗
+	
+	unsigned int fileSize = 0; //文件大小
+	
+	
+	//1、先获取id 和 cmd 
+	
+	switch(cmd)
+	{
+		case 0: //断开连接
+			break;
+		case 1: //接收XML文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析XML文件
+			break;
+		}
+		case 2: //接收JSON文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析Json文件
+			break;
+		}
+		case 3: //接收URL链接
+		{
+			char type[10] = {0}; //文件类型
+			char url[50] = {0};  //url链接
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件类型 URL链接 校验码
+			//3、验证校验码是否正确 错误返回-1 
+			//4、把链接中的文件下载保存到对应的文件夹中
+			//5、如果出错返回-1
+		}
+		default:
+			break;
+	}
+}
+typedef struct{
+	//协议头部
+	char head[10];
+	char checknum; //校验码
+	char buff[512]; //数据
+}Msg;
+
+static unsigned char msg_ckeck(Msg *message)
+{
+	unsigned int s = 0;
+	for (i = 0; i < sizeof(message->buff); i++)
+	{
+		s += message->buff[i];
+	}
+	return s;
+}
+
+
+int getMessageFromClient()
+{
+	char recvMessage[MAX_SIZE] = 0;
+	bzero(sendMessage, MAX_SIZE);
+	int ret = -1;
+	
+	
+	ret = read(clientSocket, recvMessage, sizeof(recvMessage)); //读取客户端发送过来的数据
+	if (ret < 0)
+	{
+		perror("read message from client error");
+		return -1;
+	}
+	
+	ret = decodePacket(sendMessage);
+
+}
+
+int decodePacket(char *sendMessage) //数据包解析
+{
+	int cmd = -1;
+	char id[30] = {0}; //ip + port
+	//0、先判断ip和Port是本客户端的吗
+	
+	unsigned int fileSize = 0; //文件大小
+	
+	
+	//1、先获取id 和 cmd 
+	
+	switch(cmd)
+	{
+		case 0: //断开连接
+			break;
+		case 1: //接收XML文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析XML文件
+			break;
+		}
+		case 2: //接收JSON文件
+		{
+			unsigned int fileSize = 0; //文件大小
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件大小和校验码
+			//3、读取文件的内容并将其保存到对应的文件夹中
+			//4、判断校验码是否正确 错误返回-1
+			//5、解析Json文件
+			break;
+		}
+		case 3: //接收URL链接
+		{
+			char type[10] = {0}; //文件类型
+			char url[50] = {0};  //url链接
+			unsigned int checkNum = 0; //校验码
+			
+			//2、获取文件类型 URL链接 校验码
+			//3、验证校验码是否正确 错误返回-1 
+			//4、把链接中的文件下载保存到对应的文件夹中
+			//5、如果出错返回-1
+		}
+		default:
+			break;
+	}
+}
